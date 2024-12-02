@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: Scribble
-date: 2013-06-01 01:42:00
+title: Scribble2
+date: 2014-06-01 01:42:00
 homepage: https://github.com/muan/scribble
 download: https://github.com/muan/scribble/archive/gh-pages.zip
 demo: https://scribble.muan.co/
