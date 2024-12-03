@@ -1,20 +1,24 @@
 name: Syntax Validator
-on:
-  push:
-    branches:
-    - dev
-  pull_request:
-    branches:
-    - dev
+on: [ push, pull_request]
+
 jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           submodules: true
+      - name: Changed files
+        uses: tj-actions/changed-files@v45
+        id: changed-files
+        with:
+          files: '_posts/*.{md,markdown}'
+          separator: ","
       - name: Markdown Linting
         uses: DavidAnson/markdownlint-cli2-action@v18
+        if: steps.changed-files.outputs.any_changed == 'true'
         with:
-          globs: '_posts/*.markdown'
+          globs: ${{ steps.changed-files.outputs.all_changed_files }}
+          separator: ","
+          fix: true
