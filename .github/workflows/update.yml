@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   dispatch:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Dispatch updates
         uses: peter-evans/repository-dispatch@v3
